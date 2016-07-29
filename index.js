@@ -41,9 +41,9 @@ function getChromeInstance() {
 
 function takeScreenshot(instance) {
   instance.Page.captureScreenshot().then((v) => {
-    let filename = `screenshot-${Date.now()}.png`
+    let filename = `screenshot-${Date.now()}.png`;
 
-    fs.writeFileSync(filename, `data:image/png;base64,${v.data}`);
+    fs.writeFileSync(filename, v.data, 'base64');
     console.log(`Image saved as ${filename}`);
 
     // Take it all down now.
